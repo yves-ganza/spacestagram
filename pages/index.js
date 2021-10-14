@@ -14,7 +14,6 @@ import fetchData from '../lib/fetchData';
 
 export async function getStaticProps() { 
   const data = await fetchData()
-  console.log(data)
   return {
     props: {
       data
@@ -25,13 +24,12 @@ export async function getStaticProps() {
 export default function Home({data}) {
 
   const router = useRouter()
-  console.log(data)
 
   return (
     <Layout home>
       {
         router.isFallback ?
-        <Spinner accessibilityLabel="Loading" size="large" /> : data && 
+        <Spinner accessibilityLabel="Loading" size="small" /> : data && 
         data.map(({copyright, date, explanation, hdurl, title, url, media_type}) => (
             media_type==='image' &&
             <MediaCard

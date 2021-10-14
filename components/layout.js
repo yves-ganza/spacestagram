@@ -19,10 +19,13 @@ export default function Layout({ children, home }) {
         />
         <meta name="og:title" content={siteTitle} />
       </Head>
-      <header className={styles.header}>
-        <h1 className={utilStyles.heading2Xl}>SpaceStagram</h1>
-      </header>
-      <main className={styles.grid}>{children}</main>
+      {home && (
+        <header className={styles.header}>
+          <h1 className={utilStyles.heading2Xl}>SpaceStagram</h1>
+        </header>        
+      )}
+
+      <main className={home && styles.grid}>{children}</main>
       {!home && (
         <div className={styles.backToHome}>
           <Link href="/">
