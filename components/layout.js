@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from './layout.module.css'
+
 import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
 
@@ -21,7 +22,7 @@ export default function Layout({ children, home }) {
       <header className={styles.header}>
         <h1 className={utilStyles.heading2Xl}>SpaceStagram</h1>
       </header>
-      <main>{children}</main>
+      <main className={styles.grid}>{children}</main>
       {!home && (
         <div className={styles.backToHome}>
           <Link href="/">

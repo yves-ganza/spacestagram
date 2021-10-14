@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Image from 'next/image'
+import Image from '../components/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
@@ -8,7 +8,7 @@ import utilStyles from '../styles/utils.module.css'
 import Layout from '../components/layout'
 
 import '@shopify/polaris/build/esm/styles.css';
-import { MediaCard,} from '@shopify/polaris';
+import { MediaCard,Spinner} from '@shopify/polaris';
 
 import fetchData from '../lib/fetchData';
 
@@ -28,11 +28,14 @@ export default function Home({data}) {
   return (
     <Layout home>
       {
+        router.isFallback ?
+        <Spinner accessibilityLabel="Loading" size="large" /> :
         data.map(({copyright, date, explanation, hdurl, title, url, media_type}) => (
             media_type==='image' &&
             <MediaCard
               key={date}
-              title={title}
+              title={title.split(':')[0]}
+              description={title.split(':')[1] || ''}
               primaryAction={{
                 content: 'Like',
                 onAction: () => {},
@@ -44,20 +47,13 @@ export default function Home({data}) {
               }}
               portrait={true}
             >
-              {/* <Image
-                src={url}
-                alt={title}
-                layout='fill'
-              /> */}
-                <img
-                  alt=""
-                  className={utilStyles.postImage}
-                  style={{
-                    objectFit: 'cover',
-                    objectPosition: 'center',
-                  }}
+              <div className='relative w-full max-h-1/2'>
+                <Image
+                  alt={title}
                   src={url}
-                />
+                  layout='fill'
+                />                
+              </div>
             </MediaCard>
         ))
       }
