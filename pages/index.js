@@ -1,4 +1,4 @@
-import Head from 'next/head'
+import Error from 'next/error'
 import Image from '../components/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -29,7 +29,7 @@ export default function Home({data}) {
     <Layout home>
       {
         router.isFallback ?
-        <Spinner accessibilityLabel="Loading" size="small" /> : data && 
+        <Spinner accessibilityLabel="Loading" size="small" /> : data ?
         data.map(({copyright, date, explanation, hdurl, title, url, media_type}) => (
             media_type==='image' &&
             <MediaCard
@@ -55,7 +55,8 @@ export default function Home({data}) {
                 />                
               </div>
             </MediaCard>
-        ))
+        )) :
+            <Error statusCode={500}/>
       }
     </Layout>
   )
