@@ -29,7 +29,7 @@ export default function Home({data}) {
     <Layout home>
       {
         router.isFallback ?
-        <Spinner accessibilityLabel="Loading" size="large" /> :
+        <Spinner accessibilityLabel="Loading" size="large" /> : data && 
         data.map(({copyright, date, explanation, hdurl, title, url, media_type}) => (
             media_type==='image' &&
             <MediaCard
