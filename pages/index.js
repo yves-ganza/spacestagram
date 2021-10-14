@@ -14,6 +14,7 @@ import fetchData from '../lib/fetchData';
 
 export async function getStaticProps() { 
   const data = await fetchData()
+  console.log(data)
   return {
     props: {
       data
