@@ -13,16 +13,16 @@ import { MediaCard,Spinner} from '@shopify/polaris';
 import fetchData from '../lib/fetchData';
 
 export async function getStaticProps() { 
-  const data = await fetchData()
+  const data = await fetchData() || null
+  console.log(data)
   return {
     props: {
-      data
+      data 
     }
   }
 }
 
 export default function Home({data}) {
-
   const router = useRouter()
 
   return (

@@ -1,5 +1,7 @@
 import {useRouter} from "next/router"
 import Link from "next/link"
+import Error from "next/error"
+
 import Image from "../../components/image"
 import { Spinner } from "@shopify/polaris"
 
@@ -19,7 +21,7 @@ export async function getStaticPaths(){
 }
 
 export async function getStaticProps({params}){
-    const data = await fetchData(params.id)
+    const data = await fetchData(params.id) || null
     return {
         props: {
             data
@@ -35,7 +37,11 @@ export default function Post({data}){
             <Spinner accessibilityLabel="Loading" size="small" />
         )
     }
+
     return(
+        <>
+        {
+            data?
             <div className="flex flex-col lg:flex-row overflow-hidden h-1/2 lg:h-full shadow-lg rounded w-full mx-auto">
                 <div className="h-1/2 lg:h-full lg:w-1/2">
                     <img alt={data.title} src={data.hdurl} className="w-full object-cover"/>
@@ -54,7 +60,9 @@ export default function Post({data}){
                         {data.explanation}
                     </p>
                 </section>
-            </div>                
-        
+            </div> : <Error statusCode={500}/>
+    
+        }
+        </>
     )
 }
