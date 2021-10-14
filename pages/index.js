@@ -24,6 +24,7 @@ export async function getStaticProps() {
 export default function Home({data}) {
 
   const router = useRouter()
+  console.log(data)
 
   return (
     <Layout home>
