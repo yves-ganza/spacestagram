@@ -9,9 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@shopify/polaris": "^7.0.0",
     "next": "11.1.2",
+    "postcss-flexbugs-fixes": "^5.0.2",
+    "postcss-preset-env": "^6.7.0",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "tailwindcss": "^2.2.16"
   },
   "devDependencies": {
     "eslint": "7.32.0",

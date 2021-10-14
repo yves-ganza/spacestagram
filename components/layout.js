@@ -4,8 +4,8 @@ import styles from './layout.module.css'
 import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
 
-const name = 'Yves Ganza'
-export const siteTitle = 'Profile Page'
+
+export const siteTitle = 'SpaceStagram'
 
 export default function Layout({ children, home }) {
   return (
@@ -14,57 +14,12 @@ export default function Layout({ children, home }) {
         <link rel="icon" href="/favicon.ico" />
         <meta
           name="description"
-          content="Personal website"
-        />
-        <meta
-          property="og:image"
-          content={`https://og-image.vercel.app/${encodeURI(
-            siteTitle
-          )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
+          content="Photos from NASA's image apis"
         />
         <meta name="og:title" content={siteTitle} />
-        <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <header className={styles.header}>
-        {home ? (
-          <>
-            <Image
-              priority
-              src="/images/avatar.jpg"
-              className={utilStyles.borderCircle}
-              height={255}
-              width={255}
-              alt={name}
-            />
-            <h1 className={utilStyles.heading2Xl}>{name}</h1>
-            <h2>                    
-                Go to{' '}
-                <Link href={'/posts/first_post'}>
-                    <a>Posts</a>
-                </Link>
-            </h2>
-          </>
-        ) : (
-          <>
-            <Link href="/">
-              <a>
-                <Image
-                  priority
-                  src="/images/avatar.jpg"
-                  className={utilStyles.borderCircle}
-                  height={200}
-                  width={200}
-                  alt={name}
-                />
-              </a>
-            </Link>
-            <h2 className={utilStyles.headingLg}>
-              <Link href="/">
-                <a className={utilStyles.colorInherit}>{name}</a>
-              </Link>
-            </h2>
-          </>
-        )}
+        <h1 className={utilStyles.heading2Xl}>SpaceStagram</h1>
       </header>
       <main>{children}</main>
       {!home && (
