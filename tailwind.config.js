@@ -9,6 +9,10 @@ module.exports = {
       '1/2': '50vh',
       '3/4': '75vh',
       'full': '100vh',
+    },
+    Height: {
+      'half': '50vh',
+      'quarter': '25vh'
     }
   },
   variants: {

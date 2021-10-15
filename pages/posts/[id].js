@@ -39,7 +39,7 @@ export default function Post({data}){
     }
 
     return(
-        <div className="mt-8 mx-2">
+        <div className="mt-8 mx-6">
             <div className="flex justify-end px-4 py-5">
                 <Link href="/">
                     <a>← Back to home</a>
@@ -53,10 +53,10 @@ export default function Post({data}){
                 </div>
 
                 <section className="overflow-hidden overflow-y-auto dark:bg-gray-800 w-full h-2/3 lg:h-full lg:w-1/2 p-4">
-                    <header className="text-gray-800 dark:text-white text-2xl font-lg mb-2 px-4 pt-2 sm:pt-5 sm:px-6">
-                        {data.title}
-                    </header>                        
-                    <p className="text-gray-500 dark:text-gray-300 font-md text-xl px-4 pt-2 sm:px-6">
+                    <h1 className="flex-auto text-6xl px-4 sm:px-6 pt-2 font-semibold dark:text-gray-50">
+                        {data.title.split(':')[0]}
+                    </h1>                       
+                    <p className="text-gray-500 dark:text-gray-300 font-md text-2xl px-4 pt-8 sm:px-6">
                         {data.explanation}
                     </p>
                 </section>
