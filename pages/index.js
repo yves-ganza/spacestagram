@@ -35,7 +35,11 @@ export default function Home({data}) {
             <MediaCard
               key={date}
               title={title.split(':')[0]}
-              description={title.split(':')[1] || ''}
+              description={`
+               ${title.split(':')[1] || ''}\n
+               ${date}
+              `
+              }
               primaryAction={{
                 content: 'Like',
                 onAction: () => {},

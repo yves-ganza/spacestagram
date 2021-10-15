@@ -40,6 +40,11 @@ export default function Post({data}){
 
     return(
         <div className="mt-8 mx-2">
+            <div className="flex justify-end px-4 py-5">
+                <Link href="/">
+                    <a>← Back to home</a>
+                </Link>
+            </div>
         {
             data?
             <div className="flex flex-col lg:flex-row overflow-hidden h-full max-h-3/4 shadow-lg rounded w-full m-auto">
@@ -48,11 +53,6 @@ export default function Post({data}){
                 </div>
 
                 <section className="overflow-hidden overflow-y-auto dark:bg-gray-800 w-full h-2/3 lg:h-full lg:w-1/2 p-4">
-                    <div className="flex justify-end px-4 py-5">
-                        <Link href="/">
-                            <a>← Back to home</a>
-                        </Link>
-                    </div>
                     <header className="text-gray-800 dark:text-white text-2xl font-lg mb-2 px-4 pt-2 sm:pt-5 sm:px-6">
                         {data.title}
                     </header>                        
