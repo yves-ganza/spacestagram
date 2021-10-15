@@ -21,7 +21,7 @@ export default function Layout({ children, home }) {
       </Head>
       {home && (
         <header className={styles.header}>
-          <h1 className={utilStyles.heading2Xl}>SpaceStagram</h1>
+          <h1 className='text-5xl sm:text-9xl font-mono text-indigo-900'>SpaceStagram</h1>
         </header>        
       )}
 

@@ -17,9 +17,12 @@
     text-decoration: underline;
   }
 
-  img {
-    max-width: 100%;
-    display: block;
+  #__next {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 100%;
   }
 }
 
