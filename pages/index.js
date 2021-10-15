@@ -1,5 +1,6 @@
 import Error from 'next/error'
-import Image from '../components/image'
+import LikeButton from '../components/likeButton'
+import Spinner from '../components/spinner'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
@@ -8,7 +9,6 @@ import utilStyles from '../styles/utils.module.css'
 import Layout from '../components/layout'
 
 import '@shopify/polaris/build/esm/styles.css';
-import { MediaCard,Spinner} from '@shopify/polaris';
 
 import fetchData from '../lib/fetchData';
 
@@ -24,11 +24,12 @@ export async function getStaticProps() {
 export default function Home({data}) {
   const router = useRouter()
 
+  if(router.isFallback) return <Spinner />
+
   return (
     <Layout home>
       {
-        router.isFallback ?
-        <Spinner accessibilityLabel="Loading" size="small" /> : data ?
+        data ?
         data.map(({copyright, date, explanation, hdurl, title, url, media_type}) => (
             media_type==='image' &&
             <div key={date} className="flex flex-col max-h-3/4 sm:max-h-1/2 bg-white dark:bg-gray-800 rounded-lg shadow">
@@ -51,9 +52,7 @@ export default function Home({data}) {
                       </div>
                     }
                     <div className="flex justify-between items-center py-5 text-gray-700 dark:text-gray-300">
-                      <button type="button" className="py-4 px-8  bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white transition ease-in duration-200 text-center text-2xl font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
-                        Like
-                      </button>
+                      <LikeButton />
                       <Link href={`/posts/${date}`} className='text-2xl'>
                         <a>Details</a>
                       </Link>

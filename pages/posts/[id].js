@@ -1,12 +1,7 @@
 import {useRouter} from "next/router"
 import Link from "next/link"
 import Error from "next/error"
-
-import Image from "../../components/image"
-import { Spinner } from "@shopify/polaris"
-
-import Layout from "../../components/layout"
-import utilStyles from "../../styles/utils.module.css"
+import Spinner from "../../components/spinner"
 import fetchData from "../../lib/fetchData"
 
 export async function getStaticPaths(){
@@ -32,11 +27,7 @@ export async function getStaticProps({params}){
 export default function Post({data}){
     const router = useRouter()
 
-    if(router.isFallback){
-        return(
-            <Spinner accessibilityLabel="Loading" size="small" />
-        )
-    }
+    if(router.isFallback) return <Spinner />
 
     return(
         <div className="mt-8 mx-6">
