@@ -43,17 +43,17 @@ export default function Post({data}){
         {
             data?
             <div className="flex flex-col lg:flex-row overflow-hidden h-full max-h-3/4 shadow-lg rounded w-full m-auto">
-                <div className="h-1/2 lg:h-full lg:w-1/2">
+                <div className="h-1/3 lg:h-full lg:w-1/2">
                     <img alt={data.title} src={data.hdurl} className="w-full object-cover"/>
                 </div>
 
-                <section className="overflow-hidden overflow-y-auto dark:bg-gray-800 w-full h-1/2 lg:h-full lg:w-1/2 p-4">
+                <section className="overflow-hidden overflow-y-auto dark:bg-gray-800 w-full h-2/3 lg:h-full lg:w-1/2 p-4">
                     <div className="flex justify-end px-4 py-5">
                         <Link href="/">
                             <a>← Back to home</a>
                         </Link>
                     </div>
-                    <header className="text-gray-800 dark:text-white text-2xl font-lg mb-2 px-4 pt-5 sm:px-6">
+                    <header className="text-gray-800 dark:text-white text-2xl font-lg mb-2 px-4 pt-2 sm:pt-5 sm:px-6">
                         {data.title}
                     </header>                        
                     <p className="text-gray-500 dark:text-gray-300 font-md text-xl px-4 pt-2 sm:px-6">
