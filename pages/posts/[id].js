@@ -53,7 +53,7 @@ export default function Post({data}){
                             <a>← Back to home</a>
                         </Link>
                     </div>
-                    <header className="text-gray-800 dark:text-white text-2xl font-lg mb-2 px-4 pt-5 sm:px-6">
+                    <header className="text-gray-800 dark:text-white text-2xl font-lg mb-2 px-4 pt-2 sm:pt-5 sm:px-6">
                         {data.title}
                     </header>                        
                     <p className="text-gray-500 dark:text-gray-300 font-md text-xl px-4 pt-2 sm:px-6">
