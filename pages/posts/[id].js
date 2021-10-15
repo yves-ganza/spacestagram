@@ -39,7 +39,7 @@ export default function Post({data}){
         {
             data?
             <div className="lg:flex overflow-hidden shadow-lg rounded w-full m-auto">
-                <div className="lg:h-full lg:w-1/2">
+                <div className="max-h-1/3 lg:max-h-full lg:w-1/2">
                     <img alt={data.title} src={data.hdurl} className="w-full h-auto object-cover"/>
                 </div>
                 <section className="overflow-hidden overflow-y-auto dark:bg-gray-800 w-full h-2/3 lg:h-full lg:w-1/2 p-4">
