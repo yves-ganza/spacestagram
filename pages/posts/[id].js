@@ -30,7 +30,7 @@ export default function Post({data}){
     if(router.isFallback) return <Spinner />
 
     return(
-        <div className="mt-8 mx-6">
+        <div className="py-4 mx-6">
             <div className="flex justify-end px-4 py-5">
                 <Link href="/">
                     <a>← Back to home</a>
