@@ -36,7 +36,7 @@ export default function Home({data}) {
               key={date}
               title={title.split(':')[0]}
               description={`
-               ${title.split(':')[1]}
+               ${title.split(':')[1] || ''}\n
                ${date}
               `
               }
