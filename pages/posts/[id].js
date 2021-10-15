@@ -42,8 +42,6 @@ export default function Post({data}){
                 <div className="h-1/3 lg:h-full lg:w-1/2">
                     <img alt={data.title} src={data.hdurl} className="w-full h-full object-cover"/>
                 </div>
-                <section className="overflow-hidden overflow-y-auto dark:bg-gray-800 w-full min-h-2/3 lg:h-full lg:w-1/2 p-4">
-                    <h1 className="flex-auto text-4xl lg:text-6xl px-4 sm:px-6 pt-2 font-semibold dark:text-gray-50">
                 <section className="overflow-hidden overflow-y-auto dark:bg-gray-800 w-full h-2/3 lg:h-full lg:w-1/2 p-4">
                     <h1 className="flex-auto text-4xl lg:text-6xl px-4 sm:px-6 pt-2 font-semibold dark:text-gray-50">
                         {data.title.split(':')[0]}
