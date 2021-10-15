@@ -44,7 +44,7 @@ export default function Post({data}){
                 </div>
 
                 <section className="overflow-hidden overflow-y-auto dark:bg-gray-800 w-full h-2/3 lg:h-full lg:w-1/2 p-4">
-                    <h1 className="flex-auto text-6xl px-4 sm:px-6 pt-2 font-semibold dark:text-gray-50">
+                    <h1 className="flex-auto text-4xl md:text-6xl px-4 sm:px-6 pt-2 font-semibold dark:text-gray-50">
                         {data.title.split(':')[0]}
                     </h1>                       
                     <p className="text-gray-500 dark:text-gray-300 font-md text-2xl px-4 pt-8 sm:px-6">
