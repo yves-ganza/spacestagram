@@ -53,11 +53,8 @@
 
   .grid {
     display: grid;
-    align-items: center;
-    justify-content: center;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 600px));
-    column-gap: 2rem;
-    row-gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: 1rem;
   }
 
   .postImage {
