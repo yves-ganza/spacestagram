@@ -38,9 +38,9 @@ export default function Post({data}){
             </div>
         {
             data?
-            <div className="flex flex-col lg:flex-row overflow-hidden h-full max-h-3/4 shadow-lg rounded w-full m-auto">
-                <div className="h-1/3 lg:h-full lg:w-1/2">
-                    <img alt={data.title} src={data.hdurl} className="w-full object-cover"/>
+            <div className="flex flex-col justify-center items-center  lg:flex-row shadow-lg rounded m-auto">
+                <div className="lg:h-full lg:w-1/2">
+                    <img alt={data.title} src={data.hdurl} className="w-full h-full object-cover"/>
                 </div>
 
                 <section className="overflow-hidden overflow-y-auto dark:bg-gray-800 w-full h-2/3 lg:h-full lg:w-1/2 p-4">

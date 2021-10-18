@@ -25,7 +25,7 @@ export default function Layout({ children, home }) {
         </header>        
       )}
 
-      <main className={home ? styles.grid : utilStyles.wrapper}>{children}</main>
+      <main className={home ? utilStyles.grid : utilStyles.wrapper}>{children}</main>
       {!home && (
         <div className={styles.backToHome}>
           <Link href="/">
