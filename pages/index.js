@@ -56,7 +56,7 @@ export default function Home({data}) {
               </div>
               <div className={`flex-col lg:flex-row justify-start shadow z-50 rounded hidden bg-white my-4 ${utilStyles.fullwidth} lg:max-h-screen`}>
                 <div className='h-96 lg:h-full lg:w-1/2 relative'>
-                    <Image alt={title} src={hdurl} layout='fill' objectFit='cover'/>
+                    <Image alt={title} src={hdurl} layout='fill' objectFit='cover' loading='eager'/>
                 </div>
 
                 <section className="flex-1 dark:bg-gray-800 px-6 py-5 md:px-8 overflow-hidden overflow-y-auto">
