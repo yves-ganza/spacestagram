@@ -1,22 +1,27 @@
-import { useState} from "react"
+import { useState, useEffect} from "react"
 
 export default function LikeButton(){
-    const [liked, setLiked] = useState(false)
+    const [state, setState] = useState({liked: false, target: null})
+
+    useEffect(()=>{
+        const liked = state.liked
+        const target = state.target
+
+        if(target){
+            if(liked){
+                target.style.stroke = 'red'
+                target.style.fill = 'red'
+            }
+            else {
+                target.style.stroke = 'currentColor'
+                target.style.fill = 'none'
+            }
+        }
+    }, [state])
 
     const handleClick = (e)=>{
         const target = e.currentTarget.firstElementChild
-
-        setLiked(!liked)
-
-        if(target.style.fill === 'none'){
-            target.style.stroke = 'red'
-            target.style.fill = 'red'
-        }
-        else {
-            target.style.stroke = 'currentColor'
-            target.style.fill = 'none'
-        }
-
+        setState(prevState => ({liked: !prevState.liked, target}))
     }
 
     return(
