@@ -62,10 +62,10 @@ export default function Home({data}) {
                     </div>
                 </div>
               </div>
-              <div className={`flex-col justify-start shadow rounded hidden bg-white my-4 ${utilStyles.fullwidth} lg:max-h-screen lg: max-w-4xl mx-auto`}>
+              <div className={`flex-col justify-start shadow rounded hidden bg-white my-4 ${utilStyles.fullwidth} lg: max-w-4xl mx-auto`}>
                 <Link href="#">
                   <a  onClick={handleClick}>
-                    <div className='h-96 relative'>
+                    <div className='h-96 lg:h-md lg:max-h-1/2 relative'>
                       <Image alt={title} src={hdurl} layout='fill' objectFit='cover' loading='eager'/>
                     </div>
                   </a>
