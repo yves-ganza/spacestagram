@@ -57,6 +57,7 @@
   grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   gap: 1rem;
   padding: 1rem;
+  position: relative;
 }
 
 .fullwidth {

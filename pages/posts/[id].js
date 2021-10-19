@@ -16,7 +16,7 @@ export async function getStaticPaths(){
 }
 
 export async function getStaticProps({params}){
-    const data = await fetchData(params.id) || null
+    const data = await fetchData(null,params.id) || null
     return {
         props: {
             data

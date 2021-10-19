@@ -17,7 +17,7 @@ export default function DetailsBtn(){
         parent.nextElementSibling.classList.remove('hidden')
         parent.nextElementSibling.setAttribute('tabindex', '0')
         parent.nextElementSibling.classList.add('flex')
-        parent.nextElementSibling.scrollIntoView({behaviour: 'smooth', block: 'center'})
+        parent.nextElementSibling.scrollIntoView({behaviour: 'smooth', block: 'start'})
 
     }
     return(

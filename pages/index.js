@@ -3,7 +3,9 @@ import LikeButton from '../components/likeButton'
 import DetailsBtn from '../components/detailsBtn'
 import CloseBtn from '../components/closeButton'
 import Spinner from '../components/spinner'
+import ImgModal from '../components/imgModal'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 
@@ -15,7 +17,7 @@ import '@shopify/polaris/build/esm/styles.css';
 import fetchData from '../lib/fetchData';
 
 export async function getStaticProps() { 
-  const data = await fetchData() || null
+  const data = await fetchData(25) || null
   return {
     props: {
       data 
@@ -28,6 +30,12 @@ export default function Home({data}) {
 
   if(router.isFallback) return <Spinner />
 
+  const handleClick = (e)=>{
+    e.preventDefault()
+    const target = e.currentTarget.parentElement.nextElementSibling
+    target.classList.remove('hidden');
+  }
+
   return (
     <Layout home>
       {
@@ -35,12 +43,12 @@ export default function Home({data}) {
         data.map(({copyright, date, explanation, hdurl, title, url, media_type}) => (
             media_type==='image' &&
             <>
-              <div key={date} className="flex flex-col dark:bg-gray-800 rounded-lg shadow">
+              <div key={date} className="grid dark:bg-gray-800 rounded-lg shadow">
                 <div className="h-96">
                     <img src={url} alt={title.split(':')[0]} className="rounded-lg inset-0 w-full h-full object-cover"/>
                 </div>
-                <div className="flex flex-col justify-between flex-1 px-4">
-                    <div className="flex items-center justify-between flex-wrap pt-8">
+                <div className="flex flex-col justify-between px-4">
+                    <div className="flex items-center justify-between flex-wrap pt-2">
                         <h1 className="flex-auto text-2xl font-semibold dark:text-gray-50">
                           {title.split(':')[0]}
                         </h1>
@@ -48,18 +56,21 @@ export default function Home({data}) {
                             {date}
                         </div>
                     </div>
-                    <div className="float-bottom flex justify-between items-end py-5 text-gray-700 dark:text-gray-300">
+                    <div className="flex justify-between items-end py-5 text-gray-700 dark:text-gray-300">
                       <LikeButton />
                       <DetailsBtn />
                     </div>
                 </div>
               </div>
-              <div className={`flex-col lg:flex-row justify-start shadow z-50 rounded hidden bg-white my-4 ${utilStyles.fullwidth} lg:max-h-screen`}>
-                <div className='h-96 lg:h-full lg:w-1/2 relative'>
-                    <Image alt={title} src={hdurl} layout='fill' objectFit='cover' loading='eager'/>
-                </div>
-
-                <section className="flex-1 dark:bg-gray-800 px-6 py-5 md:px-8 overflow-hidden overflow-y-auto">
+              <div className={`flex-col justify-start shadow rounded hidden bg-white my-4 ${utilStyles.fullwidth} lg: max-w-4xl mx-auto`}>
+                <Link href="#">
+                  <a  onClick={handleClick}>
+                    <div className='h-96 lg:h-md lg:max-h-1/2 relative'>
+                      <Image alt={title} src={hdurl} layout='fill' objectFit='cover' loading='eager'/>
+                    </div>
+                  </a>
+                </Link>
+                <section className="dark:bg-gray-800 px-6 py-5 md:px-8 overflow-hidden overflow-y-auto">
                   <div className='flex justify-end items-center p'>
                     <CloseBtn />
                   </div>
@@ -70,7 +81,8 @@ export default function Home({data}) {
                         {explanation}
                     </p>
                 </section>
-            </div> 
+            </div>
+            <ImgModal url={hdurl}/> 
             </>
 
         )) :
