@@ -1,4 +1,4 @@
-# SpaceStagram: Image-sharing from the final frontier
+# SpaceStagram
 
 ## How I worked on this project
 My goal was to complete Shopify's Front End Developer Intern Challenge - Winter 2022
